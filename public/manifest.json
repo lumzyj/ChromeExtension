@@ -1,0 +1,43 @@
+{
+    "manifest_version": 3,
+    "name": "HelpMeOut",
+    "version": "1.0.1",
+    "description": "Your extension description here.",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "desktopCapture",
+        "audioCapture",
+        "storage"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["content.js"]
+        }
+      ],
+
+    "background": {
+        "service_worker": "background.js"
+     },
+
+
+    "host_permissions":[
+        "http://*/*",
+        "https://*/*"
+        
+    ],
+    "icons": {           
+        "32": "favicon32.png"
+      
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'",
+    "sandbox": "sandbox allow-scripts; default-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';"
+  }
+
+   
+}
